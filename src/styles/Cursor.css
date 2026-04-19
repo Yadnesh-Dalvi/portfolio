@@ -1,0 +1,36 @@
+.cursor,
+.cursor-follower {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+}
+
+.cursor {
+  width: 8px;
+  height: 8px;
+  background: rgba(128,0,32,0.4);
+  border-radius: 50%;
+}
+
+.cursor-follower {
+  width: 28px;
+  height: 28px;
+  border: 1px solid rgba(128,0,32,0.4);
+  border-radius: 50%;
+  z-index: 9998;
+  backdrop-filter: blur(6px);
+  box-shadow:
+    0 0 20px rgba(234, 78, 78, 0.25),
+    0 0 40px rgba(234, 78, 78, 0.15);
+}
+
+@media (max-width: 768px) {
+  .cursor,
+  .cursor-follower {
+    display: none;
+  }
+}

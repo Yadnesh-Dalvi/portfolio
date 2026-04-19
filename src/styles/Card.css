@@ -1,0 +1,25 @@
+.card {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.paragraph {
+  cursor: pointer;
+  margin: 30px 150px;
+  padding: 40px;
+  color: #6db6ff;
+  border: 1px solid rgba(109, 182, 255, 0.6);
+  border-radius: 24px;
+  font-size: 20px;
+  background: black;
+  transition: 0.5s ease;
+}
+
+.paragraph:hover {
+  box-shadow: 0 0 10px #6db6ff;
+  scale: 1.05;
+}

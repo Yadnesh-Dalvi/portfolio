@@ -1,0 +1,214 @@
+.exp-section {
+  display: flex;
+  justify-content: center;
+  /* padding: 0px 80px; */
+  background: transparent;
+}
+
+.exp-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  width: 100%;
+  max-width: 1100px;
+  padding: 0 48px;        /* matches the other sections */
+}
+
+@media (max-width: 1024px) {
+  .exp-inner { padding: 0 32px; }
+}
+
+@media (max-width: 768px) {
+  .exp-inner { padding: 0 20px; gap: 40px; }
+}
+
+@media (max-width: 480px) {
+  .exp-inner { padding: 0 12px; }
+}
+
+/* ── Header ─────────────────────────────────────────────────────────── */
+.exp-header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 72px;
+  opacity: 0; /* starts hidden — GSAP animates it in */
+}
+
+.exp-title {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 6vw, 72px);
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1;
+  letter-spacing: 2px;
+}
+
+/* ── Timeline ────────────────────────────────────────────────────────── */
+.exp-timeline {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-left: 40px;
+  align-self: center;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 0;
+  left: 8px;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--maroon) 10%,
+    var(--maroon) 90%,
+    transparent
+  );
+}
+
+/* ── Item ────────────────────────────────────────────────────────────── */
+.exp-item {
+  position: relative;
+  margin-bottom: 52px;
+  opacity: 0; /* starts hidden — GSAP animates it in */
+}
+
+.exp-item:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Dot ─────────────────────────────────────────────────────────────── */
+.exp-dot {
+  position: absolute;
+  left: -40px;
+  top: 28px;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.exp-dot-inner {
+  width: 10px;
+  height: 10px;
+  background: var(--maroon);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(128, 0, 32, 0.5);
+  opacity: 0; /* starts hidden — GSAP animates it in */
+}
+
+/* ── Card ────────────────────────────────────────────────────────────── */
+.exp-card {
+  background: rgba(22, 22, 22, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 32px 36px;
+  transition: border-color 0.3s;
+  width: 1000px;
+}
+
+.exp-card:hover {
+  border-color: rgba(128, 0, 32, 0.4);
+}
+
+.exp-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  gap: 20px;
+}
+
+.exp-role {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.exp-company {
+  font-size: 14px;
+  color: var(--maroon-light);
+  letter-spacing: 0.5px;
+}
+
+.exp-meta {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.exp-period {
+  display: block;
+  font-size: 13px;
+  color: var(--gray);
+  margin-bottom: 4px;
+}
+
+.exp-location {
+  display: block;
+  font-size: 12px;
+  color: rgba(136, 136, 136, 0.6);
+}
+
+.exp-desc {
+  font-size: 14px;
+  color: rgba(240, 236, 228, 0.55);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+/* ── Tags ────────────────────────────────────────────────────────────── */
+.exp-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.exp-tag {
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(128, 0, 32, 0.4);
+  color: rgba(240, 236, 228, 0.6);
+  background: rgba(128, 0, 32, 0.08);
+  transition: all 0.2s;
+}
+
+.exp-tag:hover {
+  background: rgba(128, 0, 32, 0.2);
+  color: var(--white);
+}
+
+/* Fix the hardcoded 1000px card width — this is the biggest offender */
+.exp-card {
+  width: 100%;  /* override the hardcoded width: 1000px in your existing rule */
+}
+
+.exp-desc {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0;
+}
+
+.exp-desc li {
+  font-size: 14px;
+  color: rgba(240, 236, 228, 0.55);
+  line-height: 1.8;
+  padding-left: 16px;
+  position: relative;
+}
+
+.exp-desc li::before {
+  content: "<>";
+  position: absolute;
+  left: 0;
+  color: rgba(128, 0, 32, 0.7);
+  font-size: 12px;
+  top: 2px;
+}

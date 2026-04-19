@@ -1,0 +1,18 @@
+.guitar {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 420px;
+  align-items: center;
+  justify-content: center;
+  padding-top: 50px;
+  z-index: 10;
+}
+
+.string {
+  width: 400px;
+  height: 3px;
+  background: white;
+  border-radius: 10px;
+  transform-origin: center;
+}

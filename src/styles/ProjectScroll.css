@@ -1,0 +1,400 @@
+/* ─────────────────────────────────────────
+   ProjectsScroll.css
+───────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&display=swap');
+
+:root {
+  --maroon: #3D0C11;
+  --red: #ea4e4e;
+  --cream: #F5E6D3;
+  --muted: #A07070;
+}
+
+/* ── CRITICAL: these two rules make ScrollTrigger work ──
+   The page scroll must happen on <html>/<body>.
+   Never put overflow:hidden or height:100vh on them.     */
+html {
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  /* DO NOT add: overflow-y: hidden / height: 100vh / overflow: hidden */
+}
+
+/* If your app wrapper (#root or similar) clips content, add this: */
+#root {
+  overflow: visible !important;
+}
+
+/* ── Section ── */
+.projects-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  /* IMPORTANT: overflow must be visible so the track can extend beyond */
+  overflow: visible;
+  background: var(--maroon);
+}
+
+/* Thick grid */
+.projects-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image:
+    linear-gradient(rgba(234, 78, 78, 0.4) 1.5px, transparent 1.5px),
+    linear-gradient(90deg, rgba(234, 78, 78, 0.4) 1.5px, transparent 1.5px),
+    linear-gradient(rgba(234, 78, 78, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(234, 78, 78, 0.12) 1px, transparent 1px);
+  background-size: 60px 60px, 60px 60px, 20px 20px, 20px 20px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Dot intersections */
+.projects-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: radial-gradient(circle, rgba(255, 60, 80, 0.5) 2px, transparent 2px);
+  background-size: 60px 60px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ── Header ── */
+.projects-header {
+  position: absolute;
+  top: 48px;
+  left: 60px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.projects-header h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  letter-spacing: -1px;
+  line-height: 1.05;
+  color: var(--cream);
+  text-shadow: 0 0 30px rgba(234, 78, 78, 0.5);
+}
+
+.projects-header h2 em {
+  font-style: italic;
+  color: var(--red);
+  text-shadow: 0 0 20px rgba(234, 78, 78, 0.8);
+}
+
+.projects-header p {
+  margin-top: 8px;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+/* ── Counter ── */
+.proj-counter {
+  position: absolute;
+  top: 48px;
+  right: 60px;
+  z-index: 10;
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  color: var(--muted);
+  font-family: 'DM Mono', monospace;
+  pointer-events: none;
+}
+
+.proj-counter strong {
+  color: var(--red);
+  font-size: 1.4rem;
+  font-family: 'DM Serif Display', serif;
+}
+
+/* ── Progress Dots ── */
+.progress-dots {
+  position: absolute;
+  bottom: 40px;
+  left: 60px;
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.progress-dots span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background: rgba(234, 78, 78, 0.25);
+  border-radius: 2px;
+  transition: background 0.3s ease, width 0.3s ease;
+}
+
+.progress-dots span.active {
+  background: var(--red);
+  width: 52px;
+  box-shadow: 0 0 8px rgba(234, 78, 78, 0.8);
+}
+
+/* ── Scroll Hint ── */
+.scroll-hint {
+  position: absolute;
+  bottom: 44px;
+  right: 60px;
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  color: var(--muted);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 10;
+  pointer-events: none;
+  font-family: 'DM Mono', monospace;
+}
+
+.scroll-hint::before {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--red);
+  box-shadow: 0 0 6px rgba(234, 78, 78, 0.6);
+}
+
+/* ── Glow Orb ── */
+.proj-glow-orb {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(234, 78, 78, 0.2) 0%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 1;
+  top: -100px;
+  left: -100px;
+  will-change: transform;
+}
+
+/* ── Horizontal Track ──
+   This is the element GSAP moves.
+   Must NOT be clipped by overflow:hidden on parents. */
+.proj-track {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  padding: 0 60px;
+  gap: 28px;
+  /* width:max-content lets it grow as wide as all cards combined */
+  width: max-content;
+  position: relative;
+  z-index: 5;
+  /* Do NOT add overflow:hidden here */
+}
+
+.proj-track-spacer {
+  width: 340px;
+  flex-shrink: 0;
+}
+
+/* ── Card ── */
+.proj-card {
+  position: relative;
+  width: 400px;
+  height: 530px;
+  flex-shrink: 0;
+  border: 1px solid rgba(234, 78, 78, 0.2);
+  border-radius: 4px;
+  padding: 40px 36px;
+  background: rgba(16, 3, 5, 0.85);
+  backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  cursor: default;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+  will-change: transform;
+}
+
+.proj-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--card-color, transparent);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.proj-card:hover {
+  border-color: rgba(234, 78, 78, 0.6);
+  transform: translateY(-10px);
+  box-shadow:
+    0 0 25px 5px rgba(234, 78, 78, 0.35),
+    0 0 70px 15px rgba(180, 10, 25, 0.18);
+}
+
+.proj-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Card Top ── */
+.proj-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.proj-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 5.5rem;
+  line-height: 1;
+  color: rgba(234, 78, 78, 0.12);
+  letter-spacing: -4px;
+  user-select: none;
+  transition: color 0.35s ease;
+}
+
+.proj-card:hover .proj-num {
+  color: rgba(234, 78, 78, 0.32);
+}
+
+.proj-meta { text-align: right; }
+
+.proj-category {
+  display: block;
+  font-size: 0.62rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+.proj-year {
+  display: block;
+  font-size: 0.62rem;
+  letter-spacing: 2px;
+  color: var(--muted);
+  margin-top: 5px;
+}
+
+/* ── Card Mid ── */
+.proj-card-mid h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.3rem;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+  color: var(--cream);
+  margin-bottom: 16px;
+}
+
+.proj-card-mid p {
+  font-size: 0.78rem;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+/* ── Divider ── */
+.proj-card-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(234, 78, 78, 0.15);
+}
+
+/* ── Tags ── */
+.proj-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.proj-tag {
+  font-size: 0.62rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border: 1px solid rgba(234, 78, 78, 0.25);
+  border-radius: 2px;
+  color: var(--muted);
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.proj-card:hover .proj-tag {
+  color: var(--cream);
+  border-color: rgba(234, 78, 78, 0.55);
+}
+
+/* ── Arrow ── */
+.proj-arrow {
+  position: absolute;
+  bottom: 36px;
+  right: 36px;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(234, 78, 78, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--red);
+  font-size: 1.1rem;
+  transition: all 0.35s ease;
+  box-shadow: 0 0 12px rgba(234, 78, 78, 0.2);
+  cursor: pointer;
+}
+
+.proj-card:hover .proj-arrow {
+  background: rgba(234, 78, 78, 0.12);
+  box-shadow: 0 0 22px rgba(234, 78, 78, 0.55);
+  transform: rotate(45deg);
+}
+
+/* ── End Card ── */
+.proj-end-card {
+  width: 260px;
+  height: 530px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  border: 1px dashed rgba(234, 78, 78, 0.2);
+  border-radius: 4px;
+  margin-right: 60px;
+}
+
+.proj-end-card span {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.4rem;
+  color: var(--muted);
+  font-style: italic;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.proj-end-card a {
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--red);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(234, 78, 78, 0.35);
+  padding-bottom: 4px;
+  transition: border-color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.proj-end-card a:hover {
+  border-color: var(--red);
+  text-shadow: 0 0 10px rgba(234, 78, 78, 0.6);
+}
