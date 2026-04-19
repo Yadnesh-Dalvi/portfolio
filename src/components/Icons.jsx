@@ -4,19 +4,19 @@ import "../styles/Icons.css";
 const Icons = () => {
   return (
     <div className="social-container">
-      <a href="mailto:youremail@email.com" className="social-icon">
+      <a href="mailto:yadalvi@email.com" className="social-icon">
         <FaEnvelope />
       </a>
 
-      <a href="https://linkedin.com" target="_blank" className="social-icon">
+      <a href="www.linkedin.com/in/yadnesh-dalvi" target="_blank" className="social-icon">
         <FaLinkedin />
       </a>
 
-      <a href="https://github.com" target="_blank" className="social-icon">
+      <a href="https://github.com/Yadnesh-Dalvi" target="_blank" className="social-icon">
         <FaGithub />
       </a>
 
-      <a href="tel:+1234567890" className="social-icon">
+      <a href="tel:+9309046495" className="social-icon">
         <FaPhone />
       </a>
     </div>
