@@ -57,6 +57,46 @@ html, body {
   padding: 0 48px;
 }
 
+/* Shared teal cursor spotlight for the portfolio's primary surfaces. */
+.hero-card[data-spotlight],
+.exp-card[data-spotlight],
+.skills-display[data-spotlight],
+.contact-form-wrap[data-spotlight] {
+  position: relative;
+  overflow: hidden;
+}
+
+[data-spotlight] {
+  --spot-x: 50%;
+  --spot-y: 50%;
+}
+
+[data-spotlight]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    310px circle at var(--spot-x) var(--spot-y),
+    rgba(134, 240, 236, 0.2) 0%,
+    rgba(20, 199, 204, 0.1) 32%,
+    transparent 68%
+  );
+  transition: opacity 280ms ease;
+}
+
+[data-spotlight]:hover::after {
+  opacity: 1;
+}
+
+@media (hover: none), (prefers-reduced-motion: reduce), (max-width: 768px) {
+  [data-spotlight]::after {
+    display: none;
+  }
+}
+
 @media (max-width: 1024px) {
   .section-container { padding: 0 32px; }
 }

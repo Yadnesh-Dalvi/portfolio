@@ -142,7 +142,7 @@ const Projects = () => {
               aria-label={`View details for ${project.title}`}
             >
               <div className={`proj-card-flipper ${flipped[project.id] ? "flipped" : ""}`}>
-                <div className="proj-face proj-front">
+                <div className="proj-face proj-front" data-spotlight>
                   <div className="proj-front-num">{project.num}</div>
                   <div className="proj-front-content">
                     <span className="proj-category">{project.category}</span>
@@ -153,7 +153,7 @@ const Projects = () => {
                   <div className="proj-card-glow" />
                 </div>
 
-                <div className="proj-face proj-back">
+                <div className="proj-face proj-back" data-spotlight>
                   <div className="proj-back-top">
                     <h3 className="proj-back-title">{project.title}</h3>
                     <span className="proj-category">{project.category}</span>

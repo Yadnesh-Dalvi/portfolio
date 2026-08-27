@@ -145,7 +145,7 @@ const Contact = () => {
           </div>
 
           {/* RIGHT — form */}
-          <div ref={formRef} className="contact-form-wrap" style={{ opacity: 0 }}>
+          <div ref={formRef} className="contact-form-wrap" style={{ opacity: 0 }} data-spotlight>
             {sent ? (
               <div className="form-success">
                 <div className="success-icon">✓</div>

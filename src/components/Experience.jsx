@@ -98,7 +98,7 @@ const Experience = () => {
               ref={(element) => { itemsRef.current[index] = element; }}
             >
               <div className="exp-dot"><div className="exp-dot-inner" /></div>
-              <div className="exp-card">
+              <div className="exp-card" data-spotlight>
                 <div className="exp-card-top">
                   <div>
                     <h3 className="exp-role">{experience.role}</h3>

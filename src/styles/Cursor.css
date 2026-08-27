@@ -24,8 +24,8 @@
   z-index: 9998;
   backdrop-filter: blur(6px);
   box-shadow:
-    0 0 20px rgba(234, 78, 78, 0.25),
-    0 0 40px rgba(234, 78, 78, 0.15);
+    0 0 20px rgba(20, 199, 204, 0.3),
+    0 0 40px rgba(134, 240, 236, 0.16);
 }
 
 @media (max-width: 768px) {

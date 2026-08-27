@@ -20,6 +20,14 @@ const Cursor = () => {
     });
 
     const moveCursor = (e) => {
+      const spotlightSurface = e.target.closest?.("[data-spotlight]");
+
+      if (spotlightSurface) {
+        const bounds = spotlightSurface.getBoundingClientRect();
+        spotlightSurface.style.setProperty("--spot-x", `${e.clientX - bounds.left}px`);
+        spotlightSurface.style.setProperty("--spot-y", `${e.clientY - bounds.top}px`);
+      }
+
       gsap.to(cursor, {
         x: e.clientX,
         y: e.clientY,

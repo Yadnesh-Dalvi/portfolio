@@ -144,7 +144,7 @@ const Skills = () => {
           </div>
 
           {/* RIGHT — animated skill pills */}
-          <div className="skills-display">
+          <div className="skills-display" data-spotlight>
             <div className="skills-group-label">
               {skillGroups[activeGroup].label}
             </div>

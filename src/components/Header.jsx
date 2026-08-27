@@ -58,7 +58,7 @@ const Header = () => {
     <section id="home" className="hero-section">
       <div className="hero-bg-glow" />
       <div className="hero-wrapper">
-        <div className="hero-card" ref={cardRef}>
+        <div className="hero-card" ref={cardRef} data-spotlight>
           <div className="hero-card-inner">
             <p className="hero-eyebrow">AI Engineer & Full-Stack Software Engineer</p>
             <h1 ref={nameRef} className="hero-name">Yadnesh Sandeep Dalvi</h1>
