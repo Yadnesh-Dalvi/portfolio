@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { FaEnvelope, FaLinkedin, FaGithub, FaPhone } from "react-icons/fa";
+import { FaEnvelope, FaLinkedin, FaGithub, FaGlobe } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
 import "../styles/Contact.css";
 
@@ -129,17 +129,17 @@ const Contact = () => {
             </div>
 
             <div className="contact-socials">
-              <a href="mailto:ydalvi@iu.edu" className="social-icon-btn">
+              <a href="mailto:ydalvi@iu.edu" aria-label="Email Yadnesh" className="social-icon-btn">
                 <FaEnvelope />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="social-icon-btn">
+              <a href="https://www.linkedin.com/in/yadnesh-dalvi" aria-label="LinkedIn" target="_blank" rel="noreferrer" className="social-icon-btn">
                 <FaLinkedin />
               </a>
-              <a href="https://github.com/Yadnesh-Dalvi" target="_blank" rel="noreferrer" className="social-icon-btn">
+              <a href="https://github.com/Yadnesh-Dalvi" aria-label="GitHub" target="_blank" rel="noreferrer" className="social-icon-btn">
                 <FaGithub />
               </a>
-              <a href="tel:+1234567890" className="social-icon-btn">
-                <FaPhone />
+              <a href="https://yadnesh-dalvi.github.io/portfolio/" aria-label="Portfolio" target="_blank" rel="noreferrer" className="social-icon-btn">
+                <FaGlobe />
               </a>
             </div>
           </div>
@@ -206,7 +206,7 @@ const Contact = () => {
 
       {/* Footer */}
       <footer className="contact-footer">
-        <p>© 2025 Yadnesh Dalvi. Built with React & GSAP.</p>
+        <p>© 2026 Yadnesh Dalvi. Built with React & GSAP.</p>
         <p className="footer-quote">"Turning Caffeine to Code Since 2021"</p>
       </footer>
     </section>

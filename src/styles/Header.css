@@ -64,6 +64,14 @@
   z-index: -1;
 }
 
+.hero-eyebrow {
+  margin-bottom: 18px;
+  color: rgba(240,236,228,0.58);
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
 .hero-name {
   font-family: var(--font-script);
   font-size: clamp(64px, 10vw, 120px);
@@ -152,6 +160,9 @@
   }
   .hero-desc {
     font-size: 13px;
+  }
+  .hero-name {
+    font-size: clamp(46px, 14vw, 72px);
   }
 }
 

@@ -7,61 +7,37 @@ gsap.registerPlugin(ScrollTrigger);
 
 const skillGroups = [
   {
-    label: "Languages",
+    label: "Languages & Frameworks",
     color: "#800020",
     skills: [
-      "Python", "JavaScript", "TypeScript", "C++", "C#", "Java",
-      "Embedded C/C++", "HTML", "CSS",
+      "Python", "JavaScript", "TypeScript", "Java", "C++", "SQL", "HTML", "CSS",
+      "FastAPI", "React.js", "Node.js", "Express.js", "Django", "Flask",
     ],
   },
   {
-    label: "Frameworks",
+    label: "Generative AI & LLMs",
     color: "#a0002a",
     skills: [
-      "React.js", "Next.js", "Node.js", "Django", "Flask", "Express.js",
-      "Angular.js", "FastAPI", "GraphQL", "Tailwind CSS",
+      "LLMs", "RAG", "LangChain", "LangGraph", "Prompt Engineering",
+      "Agentic AI Workflows", "Multi-Agent Systems", "MCP",
+      "OpenAI API", "Claude API", "Gemini API", "Groq API",
     ],
   },
   {
-    label: "AI / ML",
+    label: "AI, ML & Data Science",
     color: "#600018",
     skills: [
-      "PyTorch", "TensorFlow", "Scikit-learn", "Keras", "OpenCV",
-      "LangChain", "LangGraph", "RAG", "Transformers", "LLM",
-      "HuggingFace", "ChromaDB", "NLTK", "Pandas", "NumPy",
+      "PyTorch", "PyTorch Geometric", "TensorFlow", "Scikit-learn",
+      "Transformers", "BERT", "RoBERTa", "DeBERTa", "BART",
+      "LightGCN", "GraphSAGE", "Vector Search", "Recommendation Systems", "PySpark",
     ],
   },
   {
-    label: "Data & Viz",
+    label: "Databases, Tools & DevOps",
     color: "#800020",
     skills: [
-      "Power BI", "Tableau", "Matplotlib", "Seaborn",
-      "Excel", "Jupyter Notebook",
-    ],
-  },
-  {
-    label: "Databases",
-    color: "#700018",
-    skills: [
-      "MySQL", "PostgreSQL", "MongoDB", "SQLite",
-      "Firebase", "OpenAI GPT APIs",
-    ],
-  },
-  {
-    label: "Tools & DevOps",
-    color: "#900022",
-    skills: [
-      "Git", "GitHub", "Docker", "AWS", "CI/CD", "Linux/Bash",
-      "Postman", "Figma", "Pytest", "Flake8", "VS Code",
-    ],
-  },
-  {
-    label: "Other",
-    color: "#800020",
-    skills: [
-      "REST APIs", "GSAP", "Unity", "IoT", "Prompt Engineering",
-      "Autonomous Agents", "OOP", "Data Structures",
-      "Version Control", "Web Servers",
+      "GCP", "AWS", "Terraform", "PostgreSQL", "MongoDB", "Elasticsearch",
+      "ChromaDB", "Pinecone", "Docker", "Kubernetes (GKE)", "Git", "CI/CD",
     ],
   },
 ];
@@ -89,7 +65,7 @@ const Skills = () => {
     );
 
     // Groups pop in
-    groupsRef.current.forEach((el, i) => {
+    groupsRef.current.forEach((el) => {
       if (!el) return;
       gsap.fromTo(
         el,
@@ -141,8 +117,8 @@ const Skills = () => {
       <div className="skills-inner">
 
         <div ref={titleRef} className="skills-header">
-          <span className="section-label">What I Know</span>
-          <h2 className="skills-title">Skills</h2>
+          <span className="section-label">Technical Toolkit</span>
+          <h2 className="skills-title">Technical Skills</h2>
         </div>
 
         <div className="skills-layout">

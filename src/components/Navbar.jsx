@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import "../styles/Navbar.css";
 
-const SECTIONS = ["home", "experience", "projects", "skills", "contact"];
+const SECTIONS = ["home", "experience", "projects", "skills", "education", "contact"];
 
 const Navbar = () => {
   const navRef = useRef(null);

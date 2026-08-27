@@ -35,6 +35,7 @@ html, body {
   background-attachment: fixed;
   background-size: cover;
   cursor: none;
+  overflow-x: clip;
 }
 
 .main {

@@ -5,6 +5,7 @@ import About from "./components/About";
 import Experience from "./components/Experience";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
+import Education from "./components/Education";
 import Contact from "./components/Contact";
 import Cursor from "./components/Cursor";
 
@@ -18,6 +19,7 @@ const App = () => {
       <Experience />
       <Projects />
       <Skills />
+      <Education />
       <Contact />
     </div>
   );

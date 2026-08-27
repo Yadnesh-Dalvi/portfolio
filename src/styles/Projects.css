@@ -36,7 +36,7 @@
 .proj-bento {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 300px;
+  grid-auto-rows: 340px;
   gap: 16px;
 }
 
@@ -54,6 +54,11 @@
   opacity: 0;
   perspective: 1000px;
   cursor: pointer;
+}
+
+.proj-card-wrap:focus-visible {
+  outline: 2px solid var(--maroon-light);
+  outline-offset: 4px;
 }
 
 /* ── Flip Mechanics ─────────────────────────────────────────────── */
@@ -182,7 +187,7 @@
 .proj-back-desc {
   font-size: 13px;
   color: rgba(240,236,228,0.65);
-  line-height: 1.75;
+  line-height: 1.6;
   flex: 1;
 }
 

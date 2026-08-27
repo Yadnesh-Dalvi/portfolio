@@ -1,26 +1,40 @@
-import { FaEnvelope, FaLinkedin, FaGithub, FaPhone } from "react-icons/fa";
+import { FaEnvelope, FaLinkedin, FaGithub, FaGlobe } from "react-icons/fa";
 import "../styles/Icons.css";
 
-const Icons = () => {
-  return (
-    <div className="social-container">
-      <a href="mailto:yadalvi@email.com" className="social-icon">
-        <FaEnvelope />
-      </a>
+const links = [
+  { href: "mailto:ydalvi@iu.edu", label: "Email Yadnesh", icon: <FaEnvelope /> },
+  {
+    href: "https://www.linkedin.com/in/yadnesh-dalvi",
+    label: "Yadnesh on LinkedIn",
+    icon: <FaLinkedin />,
+  },
+  {
+    href: "https://github.com/Yadnesh-Dalvi",
+    label: "Yadnesh on GitHub",
+    icon: <FaGithub />,
+  },
+  {
+    href: "https://yadnesh-dalvi.github.io/portfolio/",
+    label: "Portfolio website",
+    icon: <FaGlobe />,
+  },
+];
 
-      <a href="www.linkedin.com/in/yadnesh-dalvi" target="_blank" className="social-icon">
-        <FaLinkedin />
+const Icons = () => (
+  <div className="social-container">
+    {links.map(({ href, label, icon }) => (
+      <a
+        key={label}
+        href={href}
+        aria-label={label}
+        target={href.startsWith("http") ? "_blank" : undefined}
+        rel={href.startsWith("http") ? "noreferrer" : undefined}
+        className="social-icon link"
+      >
+        {icon}
       </a>
-
-      <a href="https://github.com/Yadnesh-Dalvi" target="_blank" className="social-icon">
-        <FaGithub />
-      </a>
-
-      <a href="tel:+9309046495" className="social-icon">
-        <FaPhone />
-      </a>
-    </div>
-  );
-};
+    ))}
+  </div>
+);
 
 export default Icons;

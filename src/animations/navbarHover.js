@@ -1,7 +1,7 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
-const navbarHover = (containerRef) => {
+const useNavbarHover = (containerRef) => {
 useGSAP(() => {
   const items = gsap.utils.toArray(".nav-item , .navbar img");
 
@@ -24,7 +24,7 @@ useGSAP(() => {
       });
     });
   });
-});
+}, { scope: containerRef });
 };
 
-export default navbarHover;
+export default useNavbarHover;
