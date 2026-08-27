@@ -1,104 +1,449 @@
 .education-section {
-  padding: 100px 0 40px;
+  position: relative;
+  padding: 130px 0 90px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.education-section::before {
+  content: "";
+  position: absolute;
+  inset: 12% 0 auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(78, 224, 224, 0.18), transparent);
+}
+
+.education-ambient {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(12px);
+  z-index: -1;
+}
+
+.education-ambient-one {
+  width: 380px;
+  height: 380px;
+  top: 12%;
+  right: -180px;
+  background: radial-gradient(circle, rgba(20, 199, 204, 0.12), transparent 68%);
+  animation: education-drift 8s ease-in-out infinite alternate;
+}
+
+.education-ambient-two {
+  width: 280px;
+  height: 280px;
+  bottom: 4%;
+  left: -140px;
+  background: radial-gradient(circle, rgba(35, 136, 170, 0.1), transparent 70%);
+  animation: education-drift 10s ease-in-out 1s infinite alternate-reverse;
+}
+
+@keyframes education-drift {
+  from { transform: translate3d(0, -18px, 0) scale(0.94); }
+  to { transform: translate3d(20px, 22px, 0) scale(1.08); }
 }
 
 .education-inner {
+  width: 100%;
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 48px;
 }
 
 .education-header {
-  margin-bottom: 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 64px;
+  margin-bottom: 64px;
 }
 
 .education-title {
   font-family: var(--font-display);
-  font-size: clamp(48px, 6vw, 72px);
+  font-size: clamp(56px, 7vw, 86px);
   font-weight: 400;
-  line-height: 1;
+  line-height: 0.95;
   letter-spacing: 2px;
 }
 
-.education-grid {
+.education-summary {
+  display: grid;
+  grid-template-columns: auto 230px;
+  align-items: center;
+  gap: 18px;
+  padding-bottom: 4px;
+}
+
+.education-summary-number {
+  font-family: var(--font-display);
+  font-size: 54px;
+  line-height: 1;
+  color: rgba(78, 224, 224, 0.82);
+}
+
+.education-summary p {
+  color: rgba(240, 236, 228, 0.45);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.education-journey {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 36px;
+}
+
+.education-journey-label {
+  color: rgba(240, 236, 228, 0.35);
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.education-line {
+  position: relative;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.education-line-fill {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(35, 136, 170, 0.45), #14c7cc, #86f0ec);
+  box-shadow: 0 0 18px rgba(20, 199, 204, 0.34);
+}
+
+.education-node {
+  position: absolute;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  padding: 4px;
+  border: 1px solid rgba(78, 224, 224, 0.48);
+  border-radius: 50%;
+  background: #041014;
+  transform: translate(-50%, -50%);
+}
+
+.education-node:nth-of-type(2) { left: 31%; }
+.education-node:last-of-type { left: 72%; }
+
+.education-node span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent);
+  box-shadow: 0 0 14px rgba(20, 199, 204, 0.8);
+  animation: node-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes node-pulse {
+  50% { opacity: 0.45; transform: scale(0.68); }
+}
+
+.education-cards {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
+  gap: 20px;
+  perspective: 1200px;
 }
 
 .education-card {
-  min-height: 280px;
-  padding: 34px;
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 20px;
-  background: linear-gradient(145deg, rgba(5,22,26,0.9), rgba(3,13,17,0.9));
+  --spot-x: 50%;
+  --spot-y: 50%;
+  position: relative;
+  min-height: 390px;
+  padding: 30px;
+  overflow: hidden;
+  border: 1px solid rgba(78, 224, 224, 0.16);
+  border-radius: 24px;
+  background:
+    linear-gradient(145deg, rgba(7, 31, 36, 0.94), rgba(3, 14, 18, 0.96));
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: border-color 0.25s, transform 0.25s;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.education-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(134, 240, 236, 0.08), transparent 35%, transparent 72%, rgba(20, 199, 204, 0.06));
+  pointer-events: none;
 }
 
 .education-card:hover {
-  border-color: rgba(45, 220, 220, 0.52);
-  transform: translateY(-4px);
+  border-color: rgba(78, 224, 224, 0.52);
+  box-shadow:
+    0 36px 90px rgba(0, 0, 0, 0.38),
+    0 0 35px rgba(20, 199, 204, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
-.education-card h3 {
-  margin: 14px 0 8px;
+.education-spotlight {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background: radial-gradient(260px circle at var(--spot-x) var(--spot-y), rgba(78, 224, 224, 0.15), transparent 72%);
+  transition: opacity 0.35s;
+  pointer-events: none;
+}
+
+.education-card:hover .education-spotlight {
+  opacity: 1;
+}
+
+.education-orbit {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  top: -105px;
+  right: -85px;
+  border: 1px solid rgba(78, 224, 224, 0.09);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: orbit-turn 18s linear infinite;
+}
+
+.education-orbit::before,
+.education-orbit::after {
+  content: "";
+  position: absolute;
+  border: 1px solid rgba(78, 224, 224, 0.07);
+  border-radius: 50%;
+}
+
+.education-orbit::before { inset: 24px; }
+.education-orbit::after { inset: 54px; }
+
+.education-orbit span {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-light);
+  box-shadow: 0 0 12px rgba(78, 224, 224, 0.9);
+}
+
+.education-orbit span:first-child { left: 18px; top: 60px; }
+.education-orbit span:last-child { right: 45px; bottom: 24px; }
+
+@keyframes orbit-turn {
+  to { transform: rotate(360deg); }
+}
+
+.education-card-top,
+.education-card-content,
+.education-card-bottom,
+.education-years {
+  position: relative;
+  z-index: 2;
+  transform: translateZ(18px);
+}
+
+.education-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.education-step {
   font-family: var(--font-display);
-  font-size: clamp(22px, 2.5vw, 30px);
-  line-height: 1.2;
+  font-size: 58px;
+  line-height: 0.85;
+  color: rgba(78, 224, 224, 0.14);
 }
 
-.education-period,
-.education-school,
-.education-meta span {
-  color: rgba(240, 236, 228, 0.55);
-  font-size: 13px;
-  line-height: 1.6;
+.education-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 11px;
+  border: 1px solid rgba(78, 224, 224, 0.18);
+  border-radius: 999px;
+  color: rgba(240, 236, 228, 0.62);
+  background: rgba(0, 190, 200, 0.06);
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.education-status i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 9px rgba(20, 199, 204, 0.75);
 }
 
 .education-period {
-  color: var(--maroon-light);
-  letter-spacing: 1px;
+  margin-bottom: 12px;
+  color: var(--accent-light);
+  font-size: 11px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
 }
 
-.education-meta {
+.education-card h3 {
+  max-width: 94%;
+  font-family: var(--font-display);
+  font-size: clamp(25px, 2.6vw, 34px);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: 0.2px;
+}
+
+.education-school {
+  margin-top: 12px;
+  color: rgba(240, 236, 228, 0.5);
+  font-size: 13px;
+}
+
+.education-card-bottom {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 18px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.education-location,
+.education-score {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 16px;
-  margin-top: 28px;
+  flex-direction: column;
+  gap: 6px;
 }
 
-.education-meta strong {
-  color: var(--white);
-  font-size: 14px;
+.education-location span,
+.education-score span {
+  color: rgba(240, 236, 228, 0.3);
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.education-location strong {
+  color: rgba(240, 236, 228, 0.72);
+  font-size: 12px;
+}
+
+.education-score {
+  align-items: flex-end;
+}
+
+.education-score strong {
+  font-family: var(--font-display);
+  color: var(--accent-light);
+  font-size: 24px;
   white-space: nowrap;
 }
 
-@media (max-width: 768px) {
-  .education-inner {
-    padding: 0 20px;
-  }
-
-  .education-grid {
-    grid-template-columns: 1fr;
-  }
+.education-years {
+  position: absolute;
+  right: 26px;
+  bottom: 113px;
+  color: rgba(78, 224, 224, 0.08);
+  font-family: var(--font-display);
+  font-size: 18px;
+  letter-spacing: 3px;
+  writing-mode: vertical-rl;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 900px) {
+  .education-inner {
+    padding: 0 32px;
+  }
+
+  .education-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .education-summary {
+    grid-template-columns: auto 1fr;
+    max-width: 430px;
+  }
+
+  .education-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .education-card {
+    min-height: 350px;
+  }
+
+  .education-node:nth-of-type(2) { left: 25%; }
+  .education-node:last-of-type { left: 75%; }
+}
+
+@media (max-width: 600px) {
+  .education-section {
+    padding: 100px 0 60px;
+  }
+
   .education-inner {
     padding: 0 12px;
   }
 
-  .education-card {
-    min-height: 250px;
-    padding: 26px 22px;
+  .education-header {
+    margin-bottom: 44px;
   }
 
-  .education-meta {
+  .education-summary {
+    grid-template-columns: 48px 1fr;
+  }
+
+  .education-summary-number {
+    font-size: 44px;
+  }
+
+  .education-journey {
+    margin-bottom: 28px;
+  }
+
+  .education-card {
+    min-height: 410px;
+    padding: 25px 22px;
+    border-radius: 20px;
+  }
+
+  .education-card h3 {
+    max-width: 100%;
+    font-size: 28px;
+  }
+
+  .education-card-bottom {
+    grid-template-columns: 1fr;
+  }
+
+  .education-score {
     align-items: flex-start;
-    flex-direction: column;
+  }
+
+  .education-years {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .education-ambient,
+  .education-orbit,
+  .education-node span {
+    animation: none;
+  }
+
+  .education-card {
+    transform: none !important;
   }
 }
