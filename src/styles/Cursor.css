@@ -12,14 +12,14 @@
 .cursor {
   width: 8px;
   height: 8px;
-  background: rgba(128,0,32,0.4);
+  background: rgba(20,199,204,0.55);
   border-radius: 50%;
 }
 
 .cursor-follower {
   width: 28px;
   height: 28px;
-  border: 1px solid rgba(128,0,32,0.4);
+  border: 1px solid rgba(78,224,224,0.55);
   border-radius: 50%;
   z-index: 9998;
   backdrop-filter: blur(6px);

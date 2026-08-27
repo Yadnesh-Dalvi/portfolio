@@ -17,14 +17,14 @@
 
   background: radial-gradient(
     circle at top left,
-    rgba(128,0,32,0.4),
-    rgba(0, 0, 0, 0.9)
+    rgba(0,190,200,0.38),
+    rgba(1, 10, 13, 0.94)
   );
 
-  border: 1px solid rgba(128,0,32,0.4);
+  border: 1px solid rgba(45,220,220,0.42);
   backdrop-filter: blur(6px);
 
-  color: rgba(128,0,32,0.2);
+  color: rgba(126,240,236,0.72);
   font-size: 22px;
 
   transition: 
@@ -36,7 +36,7 @@
 .social-icon:hover {
   transform: scale(1.12);
   box-shadow:
-    0 0 20px rgba(128,0,32,0.4),
-    0 0 30px rgba(128,0,32,0.4);
-  border: 1px solid rgba(128,0,32,0.4);
+    0 0 20px rgba(0,190,200,0.38),
+    0 0 30px rgba(0,190,200,0.22);
+  border: 1px solid rgba(78,224,224,0.65);
 }

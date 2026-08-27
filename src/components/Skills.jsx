@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 const skillGroups = [
   {
     label: "Languages & Frameworks",
-    color: "#800020",
+    color: "#14c7cc",
     skills: [
       "Python", "JavaScript", "TypeScript", "Java", "C++", "SQL", "HTML", "CSS",
       "FastAPI", "React.js", "Node.js", "Express.js", "Django", "Flask",
@@ -16,7 +16,7 @@ const skillGroups = [
   },
   {
     label: "Generative AI & LLMs",
-    color: "#a0002a",
+    color: "#26dce0",
     skills: [
       "LLMs", "RAG", "LangChain", "LangGraph", "Prompt Engineering",
       "Agentic AI Workflows", "Multi-Agent Systems", "MCP",
@@ -25,7 +25,7 @@ const skillGroups = [
   },
   {
     label: "AI, ML & Data Science",
-    color: "#600018",
+    color: "#0f8f9b",
     skills: [
       "PyTorch", "PyTorch Geometric", "TensorFlow", "Scikit-learn",
       "Transformers", "BERT", "RoBERTa", "DeBERTa", "BART",
@@ -34,7 +34,7 @@ const skillGroups = [
   },
   {
     label: "Databases, Tools & DevOps",
-    color: "#800020",
+    color: "#14c7cc",
     skills: [
       "GCP", "AWS", "Terraform", "PostgreSQL", "MongoDB", "Elasticsearch",
       "ChromaDB", "Pinecone", "Docker", "Kubernetes (GKE)", "Git", "CI/CD",
